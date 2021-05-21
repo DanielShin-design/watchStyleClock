@@ -11,6 +11,7 @@
 		F74DDDF02657AB4C000E91C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDDEF2657AB4C000E91C8 /* ContentView.swift */; };
 		F74DDDF22657AB4E000E91C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74DDDF12657AB4E000E91C8 /* Assets.xcassets */; };
 		F74DDDF52657AB4E000E91C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74DDDF42657AB4E000E91C8 /* Preview Assets.xcassets */; };
+		F74DDDFD2657B101000E91C8 /* ClockComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDDFC2657B101000E91C8 /* ClockComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F74DDDF12657AB4E000E91C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F74DDDF42657AB4E000E91C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F74DDDF62657AB4E000E91C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F74DDDFC2657B101000E91C8 /* ClockComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				F74DDDED2657AB4C000E91C8 /* watchStyleClockApp.swift */,
 				F74DDDEF2657AB4C000E91C8 /* ContentView.swift */,
+				F74DDDFC2657B101000E91C8 /* ClockComponents.swift */,
 				F74DDDF12657AB4E000E91C8 /* Assets.xcassets */,
 				F74DDDF62657AB4E000E91C8 /* Info.plist */,
 				F74DDDF32657AB4E000E91C8 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74DDDFD2657B101000E91C8 /* ClockComponents.swift in Sources */,
 				F74DDDF02657AB4C000E91C8 /* ContentView.swift in Sources */,
 				F74DDDEE2657AB4C000E91C8 /* watchStyleClockApp.swift in Sources */,
 			);
