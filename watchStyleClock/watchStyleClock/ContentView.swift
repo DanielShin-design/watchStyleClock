@@ -86,6 +86,12 @@ struct ContentView: View {
         currentTime = Time(min: min, sec: sec, hour: displayHour)
         secondNotify = currentTime.sec
     }
+    
+    // 햅틱피드백
+    func hapticFeedback() {
+        let selectionFeedback = UISelectionFeedbackGenerator()
+        selectionFeedback.selectionChanged()
+    }
         
     var body: some View {
 
@@ -123,12 +129,16 @@ struct ContentView: View {
                         // 바인딩된 이니셜라이즈 값은 그냥 숫자 또는 true,false 를 넣을 수 없는가?
                         NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
                             .onTapGesture { hourColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.15, perform: { hourFillOrStroke.toggle() })
+                            .onLongPressGesture(minimumDuration: 0.15, perform: {
+                                                    hapticFeedback()
+                                                    hourFillOrStroke.toggle() })
                             .colorMultiply(ColorsArray[hourColorValue]) // 이미지가 하얀색이어야 색상이 멀티플라이 된다.
                         
                         NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
                             .onTapGesture { minColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.15, perform: { minFillOrStroke.toggle() })
+                            .onLongPressGesture(minimumDuration: 0.15, perform: {
+                                                    hapticFeedback()
+                                                    minFillOrStroke.toggle() })
                             .colorMultiply(ColorsArray[minColorValue])
                     }
 //                    .offset(x: currentTime.hour > 9 ? -20 : 0)
@@ -139,12 +149,16 @@ struct ContentView: View {
                         
                         NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
                             .onTapGesture { hourColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.15, perform: { hourFillOrStroke.toggle() })
+                            .onLongPressGesture(minimumDuration: 0.15, perform: {
+                                                    hapticFeedback()
+                                                    hourFillOrStroke.toggle() })
                             .colorMultiply(ColorsArray[hourColorValue])
                         
                         NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
                             .onTapGesture { minColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.15, perform: { minFillOrStroke.toggle() })
+                            .onLongPressGesture(minimumDuration: 0.15, perform: {
+                                                    hapticFeedback()
+                                                    minFillOrStroke.toggle() })
                             .colorMultiply(ColorsArray[minColorValue])
                         
                         
