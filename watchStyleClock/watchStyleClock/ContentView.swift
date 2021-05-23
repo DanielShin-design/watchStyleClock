@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  watchStyleClock
+//  WatchStyleClock
 //
 //  Created by iM27 on 2021/05/21.
 //
@@ -16,7 +16,7 @@ struct Time {
 
 
 struct ContentView: View {
-    
+    var prefersHomeIndicatorAutoHidden: Bool = true // 홈 인디게이터가 왜 안사라질까???
     
     @State var timeRepeat = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var currentTime = Time(min: 0, sec: 0, hour: 0)
@@ -111,6 +111,8 @@ struct ContentView: View {
                 .statusBar(hidden: hideStatusBar) // 상단 정보 숨김
                 .onAppear{ UIApplication.shared.isIdleTimerDisabled = true } // 화면 자동으로 꺼짐 방지
                 .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
+//                .withHostingWindow { window in let contentView = ContentView().environmentObject(SomeObservableObject())
+// window?.rootViewController = HideHomeIndicatorController(rootView: contentView) }
 //                .prefersHomeIndicatorAutoHidden(true)
 
             
@@ -214,5 +216,11 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+
+class ViewController: UIViewController {
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+}
 
 

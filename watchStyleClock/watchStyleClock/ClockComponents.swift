@@ -1,6 +1,6 @@
 //
 //  ClockComponents.swift
-//  MinimalClock
+//  WatchStyleClock
 //
 //  Created by Dan-Mini on 2021/04/17.
 //
