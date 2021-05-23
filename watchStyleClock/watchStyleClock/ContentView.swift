@@ -134,64 +134,72 @@ struct ContentView: View {
                 
                 if screenWidth > 500 {
                     ///가로화면모드
-                    HStack(spacing: 40){
-                        // 바인딩된 이니셜라이즈 값은 그냥 숫자 또는 true,false 를 넣을 수 없는가?
-                        
-                        HStack(alignment: .top, spacing: 10){
-                            Text(AmPm)
-                                .foregroundColor(AmPmHide ? .clear : .gray)
-                                .bold()
-                                .onTapGesture { AmPmHide.toggle() }
+                    VStack{
+                        HStack(spacing: 40){
+                            // 바인딩된 이니셜라이즈 값은 그냥 숫자 또는 true,false 를 넣을 수 없는가?
                             
-                            NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
-                                .onTapGesture { hourColorProgress += 1 }
+                            HStack(alignment: .top, spacing: 10){
+                                Text(AmPm)
+                                    .foregroundColor(AmPmHide ? .clear : .gray)
+                                    .bold()
+                                    .onTapGesture { AmPmHide.toggle() }
+                                
+                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
+                                    .onTapGesture { hourColorProgress += 1 }
+                                    .onLongPressGesture(minimumDuration: 0.2, perform: {
+                                                            hapticFeedback()
+                                                            hourFillOrStroke.toggle() })
+                                    .colorMultiply(ColorsArray[hourColorValue]) // 이미지가 하얀색이어야 색상이 멀티플라이 된다.
+                                
+                            }
+                            
+                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
+                                .onTapGesture { minColorProgress += 1 }
                                 .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                         hapticFeedback()
-                                                        hourFillOrStroke.toggle() })
-                                .colorMultiply(ColorsArray[hourColorValue]) // 이미지가 하얀색이어야 색상이 멀티플라이 된다.
-                            
+                                                        minFillOrStroke.toggle() })
+                                .colorMultiply(ColorsArray[minColorValue])
                         }
-                        
-                        NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
-                            .onTapGesture { minColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.2, perform: {
-                                                    hapticFeedback()
-                                                    minFillOrStroke.toggle() })
-                            .colorMultiply(ColorsArray[minColorValue])
+                        SecondDots(secondNotify: $secondNotify)
+                            .padding(.top, 20)
                     }
-//                    .offset(x: currentTime.hour > 9 ? -20 : 0)
+                    
                     
                 } else {
                     ///세로화면모드
-                    VStack(alignment: .trailing, spacing: 20){
-                        HStack(alignment: .top, spacing: 10){
-                            Text(AmPm)
-                                .foregroundColor(AmPmHide ? .clear : .gray)
-                                .bold()
-                                .onTapGesture { AmPmHide.toggle() }
+                    VStack{
+                        VStack(alignment: .trailing, spacing: 20){
+                            HStack(alignment: .top, spacing: 10){
+                                Text(AmPm)
+                                    .foregroundColor(AmPmHide ? .clear : .gray)
+                                    .bold()
+                                    .onTapGesture { AmPmHide.toggle() }
+                                
+                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
+                                    .onTapGesture { hourColorProgress += 1 }
+                                    .onLongPressGesture(minimumDuration: 0.2, perform: {
+                                                            hapticFeedback()
+                                                            hourFillOrStroke.toggle() })
+                                    .colorMultiply(ColorsArray[hourColorValue])
+                                
+                            }
                             
-                            NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
-                                .onTapGesture { hourColorProgress += 1 }
+                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
+                                .onTapGesture { minColorProgress += 1 }
                                 .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                         hapticFeedback()
-                                                        hourFillOrStroke.toggle() })
-                                .colorMultiply(ColorsArray[hourColorValue])
-                            
+                                                        minFillOrStroke.toggle() })
+                                .colorMultiply(ColorsArray[minColorValue])
+                        
                         }
                         
-                        NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
-                            .onTapGesture { minColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.2, perform: {
-                                                    hapticFeedback()
-                                                    minFillOrStroke.toggle() })
-                            .colorMultiply(ColorsArray[minColorValue])
+                        SecondDots(secondNotify: $secondNotify)
+                            .padding(.top, 20)
                         
-                    }
+                    }.offset(y: -20)
+                   
                 }
 
-                SecondDots(secondNotify: $secondNotify)
-                    .padding(.top, 20)
-                
             }
         }.onReceive(timeRepeat, perform: { _ in
             clockLogic()
