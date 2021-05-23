@@ -20,6 +20,8 @@ struct ContentView: View {
     
     @State var timeRepeat = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var currentTime = Time(min: 0, sec: 0, hour: 0)
+    @State var AmPm = ""
+    @State var AmPmHide = false
     @State var secondNotify : Int = 0
     
     @State var todayString = ""
@@ -73,13 +75,19 @@ struct ContentView: View {
         let min = calender.component(.minute, from: Date())
         let sec = calender.component(.second, from: Date())
         let hour = calender.component(.hour, from: Date())
+        
         ///24시간제를 12시간제로 바꾸기 위한 상수
         var displayHour: Int {
             var tweleveSystemHour: Int
             if hour > 12 {
                 tweleveSystemHour = hour - 12
+                self.AmPm = "PM"
+            } else if hour == 12 {
+                tweleveSystemHour = hour
+                self.AmPm = "PM"
             } else {
                 tweleveSystemHour = hour
+                self.AmPm = "AM"
             }
             return tweleveSystemHour
         }
@@ -113,7 +121,7 @@ struct ContentView: View {
                         .font(.system(size: 20, design: .rounded))
                         .bold()
                         .foregroundColor(.gray)
-                        // 가로모드로 바뀔때 자동으로 리프레쉬가 안되서 그냥 스페이서로 레이아웃 변경하도록 설정
+                        // 가로모드로 바뀔때 자동으로 리프레쉬가 안되서 그냥 스페이서()로 레이아웃 변경하도록 설정
                         // .frame(width: UIScreen.main.bounds.width, alignment: .topTrailing)
                         .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 20))
                         .onTapGesture(count: 1, perform: { dateFormatStyle.toggle() })
@@ -125,15 +133,24 @@ struct ContentView: View {
             VStack {
                 
                 if screenWidth > 500 {
-                    //가로화면모드
+                    ///가로화면모드
                     HStack(spacing: 40){
                         // 바인딩된 이니셜라이즈 값은 그냥 숫자 또는 true,false 를 넣을 수 없는가?
-                        NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
-                            .onTapGesture { hourColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.2, perform: {
-                                                    hapticFeedback()
-                                                    hourFillOrStroke.toggle() })
-                            .colorMultiply(ColorsArray[hourColorValue]) // 이미지가 하얀색이어야 색상이 멀티플라이 된다.
+                        
+                        HStack(alignment: .top, spacing: 10){
+                            Text(AmPm)
+                                .foregroundColor(AmPmHide ? .clear : .gray)
+                                .bold()
+                                .onTapGesture { AmPmHide.toggle() }
+                            
+                            NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
+                                .onTapGesture { hourColorProgress += 1 }
+                                .onLongPressGesture(minimumDuration: 0.2, perform: {
+                                                        hapticFeedback()
+                                                        hourFillOrStroke.toggle() })
+                                .colorMultiply(ColorsArray[hourColorValue]) // 이미지가 하얀색이어야 색상이 멀티플라이 된다.
+                            
+                        }
                         
                         NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
                             .onTapGesture { minColorProgress += 1 }
@@ -145,15 +162,22 @@ struct ContentView: View {
 //                    .offset(x: currentTime.hour > 9 ? -20 : 0)
                     
                 } else {
-                    //세로화면모드
+                    ///세로화면모드
                     VStack(alignment: .trailing, spacing: 20){
-                        
-                        NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
-                            .onTapGesture { hourColorProgress += 1 }
-                            .onLongPressGesture(minimumDuration: 0.2, perform: {
-                                                    hapticFeedback()
-                                                    hourFillOrStroke.toggle() })
-                            .colorMultiply(ColorsArray[hourColorValue])
+                        HStack(alignment: .top, spacing: 10){
+                            Text(AmPm)
+                                .foregroundColor(AmPmHide ? .clear : .gray)
+                                .bold()
+                                .onTapGesture { AmPmHide.toggle() }
+                            
+                            NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
+                                .onTapGesture { hourColorProgress += 1 }
+                                .onLongPressGesture(minimumDuration: 0.2, perform: {
+                                                        hapticFeedback()
+                                                        hourFillOrStroke.toggle() })
+                                .colorMultiply(ColorsArray[hourColorValue])
+                            
+                        }
                         
                         NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
                             .onTapGesture { minColorProgress += 1 }

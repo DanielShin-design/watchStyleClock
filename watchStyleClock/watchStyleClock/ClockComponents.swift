@@ -35,7 +35,9 @@ struct NumberImages: View {
                 Image(self.fillOrStroke ? "N\(residual)" : "S\(residual)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 87, height: frameheight, alignment: .trailing)
+//                    .frame(width: 87, height: frameheight, alignment: .trailing)
+                    .frame(height: frameheight, alignment: .trailing)
+
         }
     }
 }
