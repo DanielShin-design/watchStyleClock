@@ -11,8 +11,8 @@ import SwiftUI
 // 시간과 분을 숫자이미지로 표현
 struct NumberImages: View {
     
-    let frameWidth: CGFloat = 85 // 화면에 보이는 숫자의 크기 값
-    let frameheight: CGFloat = 120
+//    let frameWidth: CGFloat = 85
+    let frameheight: CGFloat = 120 // 화면에 보이는 숫자의 크기 값
     
     @Binding var numberInt: Int // 시간 또는 분 숫자값
     @Binding var fillOrStroke: Bool // 숫자 표시 스타일
@@ -58,7 +58,7 @@ struct SecondDots: View {
                         )
                 }
             }
-            // 초임 움직임
+            // 초침 움직임
             HStack(spacing: 2){
                 ForEach(0..<60) { dot in
                     RoundedRectangle(cornerRadius: 2)

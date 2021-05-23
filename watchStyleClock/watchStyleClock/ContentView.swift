@@ -51,7 +51,7 @@ struct ContentView: View {
     var minColorValue: Int { minColorProgress % 13 }
 
     
-    //세로화면에서 십의자리 시간이 0이면 숨기기 위한 Bool 값인데 없앨순 없을까?
+    //세로화면에서 십의자리 시간이 0이면 숨기기 위한 Bool 값인데 없앨순 없을까? 바인딩을 시켜야 해서 어쩔 수 없이 상수에 참, 거짓 값을 할당했다.
     @State var numberHiddenTrue = true
     @State var numberHiddenFalse = false
 
@@ -73,6 +73,7 @@ struct ContentView: View {
         let min = calender.component(.minute, from: Date())
         let sec = calender.component(.second, from: Date())
         let hour = calender.component(.hour, from: Date())
+        ///24시간제를 12시간제로 바꾸기 위한 상수
         var displayHour: Int {
             var tweleveSystemHour: Int
             if hour > 12 {
@@ -160,7 +161,6 @@ struct ContentView: View {
                                                     hapticFeedback()
                                                     minFillOrStroke.toggle() })
                             .colorMultiply(ColorsArray[minColorValue])
-                        
                         
                     }
                 }
