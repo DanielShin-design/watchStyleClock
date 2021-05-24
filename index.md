@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+## 애플워치 페이스와 비슷한 시계를 아이폰에서 구현하고자 이 앱을 만들었습니다.
 
-You can use the [editor on GitHub](https://github.com/DanielShin-design/watchStyleClock/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+시계 앱은 이미 수 없이 많이 있죠. 다양한 기능을 지원하는 앱도 있구요.
+저는 아주 단순한 앱이 필요했습니다. 
+특히 어린 아이들도 사용할 수 있는 가장 단순한 앱이 필요했어요.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+화면에는 기본적인 시간이 표시되구요.
+숫자의 색상을 바꾸거나 숫자를 테두리만 보이게 하는 것도 설정 페이지를 따로 만들기 보다
+아이들도 사용할 수 있도록 짧게 터치 또는 길게 터치하면 바뀌도록 만들었어요.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DanielShin-design/watchStyleClock/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+다른 앱과는 다르게 시계앱은 디버깅이 거의 필요 없을 정도로 간단한 코드로 구현한 쉬운 난의도였습니다.
+혹시 앱을 사용하시는 동안 문제가 있으면
+clickdaniel@mac.com
+이 곳으로 메일을 보내주시면 최대한 반영하겠습니다. 감사합니다.
+
