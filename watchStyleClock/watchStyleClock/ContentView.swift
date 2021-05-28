@@ -217,10 +217,20 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-class ViewController: UIViewController {
-    override var prefersHomeIndicatorAutoHidden: Bool {
-        return true
+struct PrefersHomeIndicatorAutoHiddenPreferenceKey: PreferenceKey {
+    typealias Value = Bool
+
+    static var defaultValue: Value = false
+
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value = nextValue() || value
     }
 }
 
+extension View {
+    // Controls the application's preferred home indicator auto-hiding when this view is shown.
+    func prefersHomeIndicatorAutoHidden(_ value: Bool) -> some View {
+        preference(key: PrefersHomeIndicatorAutoHiddenPreferenceKey.self, value: value)
+    }
+}
 

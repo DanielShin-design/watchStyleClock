@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct watchStyleClockApp: App {
-//    @UIApplicationDelegateAdaptor(MyAppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(MyAppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
@@ -17,10 +17,4 @@ struct watchStyleClockApp: App {
         }
     }
 }
-/*
-class HideHomeIndicatorController<Content:View>: UIHostingController<Content> {
-    override var prefersHomeIndicatorAutoHidden: Bool {
-        true
-    }
-}
-*/
+

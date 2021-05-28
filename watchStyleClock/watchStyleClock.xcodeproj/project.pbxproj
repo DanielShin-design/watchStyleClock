@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9D796A9266130AC0022DCC8 /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D796A8266130AC0022DCC8 /* MyAppDelegate.swift */; };
 		F74DDDEE2657AB4C000E91C8 /* watchStyleClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDDED2657AB4C000E91C8 /* watchStyleClockApp.swift */; };
 		F74DDDF02657AB4C000E91C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDDEF2657AB4C000E91C8 /* ContentView.swift */; };
 		F74DDDF22657AB4E000E91C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74DDDF12657AB4E000E91C8 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9D796A8266130AC0022DCC8 /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyAppDelegate.swift; path = WatchStyleClock/MyAppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F74DDDEA2657AB4C000E91C8 /* watchStyleClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchStyleClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74DDDED2657AB4C000E91C8 /* watchStyleClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchStyleClockApp.swift; sourceTree = "<group>"; };
 		F74DDDEF2657AB4C000E91C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				F74DDDF12657AB4E000E91C8 /* Assets.xcassets */,
 				F74DDDF62657AB4E000E91C8 /* Info.plist */,
 				F74DDDF32657AB4E000E91C8 /* Preview Content */,
+				A9D796A8266130AC0022DCC8 /* MyAppDelegate.swift */,
 			);
 			path = watchStyleClock;
 			sourceTree = "<group>";
@@ -106,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F74DDDE52657AB4C000E91C8 /* Build configuration list for PBXProject "watchStyleClock" */;
+			buildConfigurationList = F74DDDE52657AB4C000E91C8 /* Build configuration list for PBXProject "WatchStyleClock" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D796A9266130AC0022DCC8 /* MyAppDelegate.swift in Sources */,
 				F74DDDFD2657B101000E91C8 /* ClockComponents.swift in Sources */,
 				F74DDDF02657AB4C000E91C8 /* ContentView.swift in Sources */,
 				F74DDDEE2657AB4C000E91C8 /* watchStyleClockApp.swift in Sources */,
@@ -313,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F74DDDE52657AB4C000E91C8 /* Build configuration list for PBXProject "watchStyleClock" */ = {
+		F74DDDE52657AB4C000E91C8 /* Build configuration list for PBXProject "WatchStyleClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F74DDDF72657AB4E000E91C8 /* Debug */,
