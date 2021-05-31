@@ -25,10 +25,12 @@ struct ContentView: View {
     @State var secondNotify : Int = 0
     
     @State var todayString = ""
-    @SceneStorage("dateFormatStyle") var dateFormatStyle: Bool = true // 날짜 표현 방식 일,월,요일 순인지 아닌지
+    @AppStorage("dateFormatStyle") var dateFormatStyle: Bool = true // 날짜 표현 방식 일,월,요일 순인지 아닌지
+//    @SceneStorage("dateFormatStyle") var dateFormatStyle: Bool = true
+    // 잘 되던 씬스토리지에 애러가 뜨네? 뭔가 엑스코드가 업데이트 되면서 바뀐듯 하다.
     
-    @SceneStorage("hourFillOrStroke") var hourFillOrStroke = true // true -> N1, false -> S1
-    @SceneStorage("minFillOrStroke") var minFillOrStroke = true // true -> N1, false -> S1
+    @AppStorage("hourFillOrStroke") var hourFillOrStroke = true // true -> N1, false -> S1
+    @AppStorage("minFillOrStroke") var minFillOrStroke = true // true -> N1, false -> S1
     
     let ColorsArray = [
         Color.init(#colorLiteral(red: 0.517097259, green: 0.7031672236, blue: 0.9265705959, alpha: 1)),
@@ -46,10 +48,10 @@ struct ContentView: View {
         Color.init(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
     ]
     
-    @SceneStorage("hourColorProgress") var hourColorProgress: Int = Int.random(in: 0...12)
+    @AppStorage("hourColorProgress") var hourColorProgress: Int = Int.random(in: 0...12)
     var hourColorValue: Int { hourColorProgress % 13 }
     
-    @SceneStorage("minColorProgress") var minColorProgress: Int = Int.random(in: 0...12)
+    @AppStorage("minColorProgress") var minColorProgress: Int = Int.random(in: 0...12)
     var minColorValue: Int { minColorProgress % 13 }
 
     
