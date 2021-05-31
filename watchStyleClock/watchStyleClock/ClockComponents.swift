@@ -12,7 +12,7 @@ import SwiftUI
 struct NumberImages: View {
     
 //    let frameWidth: CGFloat = 85
-    let frameheight: CGFloat = 120 // 화면에 보이는 숫자의 크기 값
+    let frameHeight: CGFloat = 120 // 화면에 보이는 숫자의 크기 값
     
     @Binding var numberInt: Int // 시간 또는 분 숫자값
     @Binding var fillOrStroke: Bool // 숫자 표시 스타일
@@ -29,14 +29,14 @@ struct NumberImages: View {
                 Image(self.fillOrStroke ? "N\(qoutient)" : "S\(qoutient)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: frameheight)
+                    .frame(height: qoutient == 0 && hiddenZero == true ? 0 : frameHeight)
                     .opacity(qoutient == 0 && hiddenZero == true ? 0.0 : 1.0) // 세로모드 시간이 십의 자리가 0이면 투명도로 안보이게 설정
                     
                 Image(self.fillOrStroke ? "N\(residual)" : "S\(residual)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-//                    .frame(width: 87, height: frameheight, alignment: .trailing)
-                    .frame(height: frameheight, alignment: .trailing)
+//                    .frame(width: 87, height: frameHeight, alignment: .trailing)
+                    .frame(height: frameHeight, alignment: .trailing)
 
         }
     }
