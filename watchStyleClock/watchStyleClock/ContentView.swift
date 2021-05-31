@@ -111,8 +111,6 @@ struct ContentView: View {
                 .statusBar(hidden: hideStatusBar) // 상단 정보 숨김
                 .onAppear{ UIApplication.shared.isIdleTimerDisabled = true } // 화면 자동으로 꺼짐 방지
                 .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
-//                .withHostingWindow { window in let contentView = ContentView().environmentObject(SomeObservableObject())
-// window?.rootViewController = HideHomeIndicatorController(rootView: contentView) }
 //                .prefersHomeIndicatorAutoHidden(true)
 
             
