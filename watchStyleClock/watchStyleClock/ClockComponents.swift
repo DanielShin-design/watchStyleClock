@@ -29,7 +29,7 @@ struct NumberImages: View {
                 Image(self.fillOrStroke ? "N\(qoutient)" : "S\(qoutient)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: qoutient == 0 && hiddenZero == true ? 0 : frameHeight)
+                    .frame(height: qoutient == 0 && hiddenZero == true ? 0 : frameHeight) // 십의 자리가 0이면 크기를 0으로 작게 만들어버림.
                     .opacity(qoutient == 0 && hiddenZero == true ? 0.0 : 1.0) // 세로모드 시간이 십의 자리가 0이면 투명도로 안보이게 설정
                     
                 Image(self.fillOrStroke ? "N\(residual)" : "S\(residual)")

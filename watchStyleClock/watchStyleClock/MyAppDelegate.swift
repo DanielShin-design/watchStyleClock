@@ -51,6 +51,7 @@ class MyAppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
+
 class MySceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -64,6 +65,7 @@ class MySceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 }
+
 
 class HostingController: UIHostingController<ContentView> {
     override var prefersHomeIndicatorAutoHidden: Bool {
