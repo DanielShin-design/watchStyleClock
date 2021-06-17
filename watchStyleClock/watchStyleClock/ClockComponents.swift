@@ -16,7 +16,7 @@ struct NumberImages: View {
     
     @Binding var numberInt: Int // 시간 또는 분 숫자값
     @Binding var fillOrStroke: Bool // 숫자 표시 스타일
-    @Binding var hiddenZero: Bool // 예를들어 08시 일때 십의자리 0을 숨길지 말지 불리언 밸류
+    var hiddenZero: Bool // 예를들어 08시 일때 십의자리 0을 숨길지 말지 불리언 밸류
 //    init(hiddenZero: Bool) { self.hiddenZero = hiddenZero }
     
 

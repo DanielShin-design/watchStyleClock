@@ -56,8 +56,8 @@ struct ContentView: View {
 
     
     //세로화면에서 십의자리 시간이 0이면 숨기기 위한 Bool 값인데 없앨순 없을까? 바인딩을 시켜야 해서 어쩔 수 없이 상수에 참, 거짓 값을 할당했다.
-    @State var numberHiddenTrue = true
-    @State var numberHiddenFalse = false
+//    @State var numberHiddenTrue = true
+//    @State var numberHiddenFalse = false
 
     
     @State var screenWidth: CGFloat = 0 // 가로세로 UI 변경을 위해
@@ -146,7 +146,7 @@ struct ContentView: View {
                                     .bold()
                                     .onTapGesture { AmPmHide.toggle() }
                                 
-                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenFalse)
+                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: false)
                                     .onTapGesture { hourColorProgress += 1 }
                                     .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                             hapticFeedback()
@@ -155,7 +155,7 @@ struct ContentView: View {
                                 
                             }
                             
-                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
+                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: false)
                                 .onTapGesture { minColorProgress += 1 }
                                 .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                         hapticFeedback()
@@ -177,7 +177,7 @@ struct ContentView: View {
                                     .bold()
                                     .onTapGesture { AmPmHide.toggle() }
                                 
-                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: $numberHiddenTrue)
+                                NumberImages(numberInt: $currentTime.hour, fillOrStroke: $hourFillOrStroke, hiddenZero: true)
                                     .onTapGesture { hourColorProgress += 1 }
                                     .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                             hapticFeedback()
@@ -186,7 +186,7 @@ struct ContentView: View {
                                 
                             }
                             
-                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: $numberHiddenFalse)
+                            NumberImages(numberInt: $currentTime.min, fillOrStroke: $minFillOrStroke, hiddenZero: false)
                                 .onTapGesture { minColorProgress += 1 }
                                 .onLongPressGesture(minimumDuration: 0.2, perform: {
                                                         hapticFeedback()
