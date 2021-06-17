@@ -33,7 +33,7 @@ struct ContentView: View {
     @AppStorage("minFillOrStroke") var minFillOrStroke = true // true -> N1, false -> S1
     
     let ColorsArray = [
-        Color.init(#colorLiteral(red: 0.517097259, green: 0.7031672236, blue: 0.9265705959, alpha: 1)),
+        Color.init(#colorLiteral(red: 0.5872126818, green: 0.7727354169, blue: 1, alpha: 1)),
         Color.init(#colorLiteral(red: 0.5936723865, green: 0.8363088447, blue: 0.9031938148, alpha: 1)),
         Color.init(#colorLiteral(red: 0.5945862284, green: 0.9031938148, blue: 0.7144676199, alpha: 1)),
         Color.init(#colorLiteral(red: 0.7817133973, green: 0.9031938148, blue: 0.5341807299, alpha: 1)),
