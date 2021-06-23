@@ -16,7 +16,7 @@ struct Time {
 
 
 struct ContentView: View {
-    var prefersHomeIndicatorAutoHidden: Bool = true // 홈 인디게이터가 왜 안사라질까???
+    var prefersHomeIndicatorAutoHidden: Bool = true
     
     @State var timeRepeat = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var currentTime = Time(min: 0, sec: 0, hour: 0)
